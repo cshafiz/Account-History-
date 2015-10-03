@@ -16,7 +16,7 @@ public class Transcation{
 	public void showTranscationInfo(){
 		System.out.println("Sender: "+this.sender.getAccName());
 		System.out.println("Receiver: "+this.receiver.getAccName());
-		System.out.println("Amouunt: "+this.amount);
+		System.out.println("Amount: "+this.amount);
 		System.out.println("Description: "+this.additionalInfo);
 		System.out.println("--------------------------------------");
 		
