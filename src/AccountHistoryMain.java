@@ -12,8 +12,8 @@ public class AccountHistoryMain{
 		a1.showInfo();
 		a1.transfer(2000, a3);
 		a1.showInfo();
-		a3.showInfo();
 		a2.showInfo();
+		a3.showInfo();
 		
 		
 	}
