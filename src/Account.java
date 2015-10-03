@@ -22,8 +22,11 @@ public class Account{
 		Transcation t;
 		t = new Transcation(sender, receiver, amount, description);
 		
+		if(totalNumberOfTransaction<listOfTranscation.length){
 			listOfTranscation[totalNumberOfTransaction] = t;
 			totalNumberOfTransaction++;
+			}
+		else
 			System.out.println("Transaction stroge is FULL");
 	}
 	public String getAccName(){
@@ -38,7 +41,7 @@ public class Account{
 			System.out.println("Invalid Withdraw"); return false;
 		}
 	}
-		public boolean deposit(int amount){
+	public boolean deposit(int amount){
 			if(amount>0){
 				this.balance += amount; 
 				addTransaction(this, this, amount, "Self Deposit");
@@ -46,9 +49,8 @@ public class Account{
 			}else{
 				System.out.println("Invalid Deposit"); return false;
 			}
-		}
-		
-		public void transfer(int amount, Account rec){
+	}
+	public void transfer(int amount, Account rec){
 			
 			if(this.balance>=amount && amount>0){
 				this.balance -= amount; 	
@@ -57,8 +59,16 @@ public class Account{
 				System.out.println("Valid Transaction");
 			}else{
 				System.out.println("Invalid Transaction");
-			}	
-			
-			
+			}		
+	}
+	public void showInfo(){
+		System.out.println("------------"+this.accName+"s history-----------------");
+		System.out.println("Account Name: "+this.accName);
+		System.out.println("Account balance: "+this.balance);
+		System.out.println("-----------------------------");
+		for(int i=0; i<totalNumberOfTransaction; i++)
+		{
+			listOfTranscation[i].showTranscationInfo();
+		}
 	}
 }
