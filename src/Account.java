@@ -29,4 +29,36 @@ public class Account{
 	public String getAccName(){
 		return accName;
 	}
+	public boolean withdraw(int amount){
+		if(this.balance>=amount && amount>0){
+			this.balance -= amount; 
+			addTransaction(this, this, amount, "Self Withdraw");
+			return true;
+		}else{
+			System.out.println("Invalid Withdraw"); return false;
+		}
+	}
+		public boolean deposit(int amount){
+			if(amount>0){
+				this.balance += amount; 
+				addTransaction(this, this, amount, "Self Deposit");
+				return true;
+			}else{
+				System.out.println("Invalid Deposit"); return false;
+			}
+		}
+		
+		public void transfer(int amount, Account rec){
+			
+			if(this.balance>=amount && amount>0){
+				this.balance -= amount; 	
+				rec.deposit(amount);
+				addTransaction(this, rec, amount, "Transaction to Other Account");
+				System.out.println("Valid Transaction");
+			}else{
+				System.out.println("Invalid Transaction");
+			}	
+			
+			
+	}
 }
